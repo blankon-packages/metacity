@@ -8,7 +8,7 @@ include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 include /usr/share/gnome-pkg-tools/1/rules/gnome-version.mk
 -include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
 
-DEB_INSTALL_CHANGELOGS_ALL = ./NEWS
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-startup-notification=yes
 DEB_INSTALL_DOCS_metacity += doc/theme-format.txt
 
 LDFLAGS += -Wl,-z,defs -Wl,-O1 -Wl,--as-needed

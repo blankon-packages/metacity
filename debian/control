@@ -5,8 +5,7 @@
 Source: metacity
 Section: x11
 Priority: optional
-Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
-XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Andreas Henriksson <andreas@fatal.se>, Dmitry Shachnev <mitya57@debian.org>, Josselin Mouette <joss@debian.org>, Michael Biebl <biebl@debian.org>
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
@@ -16,7 +15,7 @@ Build-Depends: cdbs (>= 0.4.41),
                intltool (>= 0.34.90),
                libcanberra-gtk3-dev,
                libglib2.0-dev (>= 2.36.0),
-               libgtk-3-dev (>= 3.15.2),
+               libgtk-3-dev (>= 3.12.0),
                libgtop2-dev,
                libice-dev,
                libpango1.0-dev (>= 1.2.0),
@@ -36,12 +35,13 @@ Build-Depends: cdbs (>= 0.4.41),
                zenity
 Standards-Version: 3.9.6
 Homepage: https://git.gnome.org/browse/metacity
-Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/experimental/metacity
-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/experimental/metacity
+Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/metacity
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/metacity
 
 Package: metacity
 Architecture: any
-Depends: gsettings-desktop-schemas (>= 3.3.0),
+Depends: gnome-icon-theme,
+         gsettings-desktop-schemas (>= 3.3.0),
          metacity-common (= ${source:Version}),
          zenity,
          ${misc:Depends},
@@ -58,13 +58,13 @@ Description: lightweight GTK+ window manager
  .
  This package contains the core binaries.
 
-Package: libmetacity-private3
+Package: libmetacity-private2
 Section: libs
 Architecture: any
 Depends: metacity-common (= ${source:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
-Breaks: libmetacity-private0a, libmetacity-private1, libmetacity-private2
+Breaks: libmetacity-private0, libmetacity-private0a, libmetacity-private1
 Description: library for the Metacity window manager
  Metacity is a small window manager, using GTK+ to do everything.
  .
@@ -78,8 +78,6 @@ Package: metacity-common
 Section: misc
 Architecture: all
 Depends: ${misc:Depends}
-Breaks: gnome-themes-standard-data (<< 3.15.90)
-Replaces: gnome-themes-standard-data (<< 3.15.90)
 Description: shared files for the Metacity window manager
  Metacity is a small window manager, using GTK+ to do everything.
  .
@@ -93,7 +91,7 @@ Package: libmetacity-dev
 Section: libdevel
 Architecture: any
 Depends: libgtk-3-dev,
-         libmetacity-private3 (= ${binary:Version}),
+         libmetacity-private2 (= ${binary:Version}),
          ${misc:Depends}
 Description: development files for the Metacity window manager
  Metacity is a small window manager, using GTK+ to do everything.
